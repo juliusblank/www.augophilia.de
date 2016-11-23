@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Serverless Stories</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/blueimp-gallery.min.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="../../assets/jsbn.js"></script>
+    <script src="../../assets/jsbn2.js"></script>
+    <script src="../../assets/sjcl.js"></script>
+    <script src="../../assets/moment.min.js"></script>
+    <script src="../../assets/aws-cognito-sdk.min.js"></script>
+    <script src="../../assets/amazon-cognito-identity.min.js"></script>
+    <script src="../../assets/aws-sdk.min.js"></script>
+    <script src="../../assets/gateway/lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script src="../../assets/gateway/lib/apiGatewayCore/sigV4Client.js"></script>
+    <script src="../../assets/gateway/lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script src="../../assets/gateway/lib/apiGatewayCore/utils.js"></script>
+    <script src="../../assets/gateway/lib/axios/dist/axios.standalone.js"></script>
+    <script src="../../assets/gateway/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script src="../../assets/gateway/lib/CryptoJS/rollups/sha256.js"></script>
+    <script src="../../assets/gateway/lib/CryptoJS/components/enc-base64.js"></script>
+    <script src="../../assets/gateway/lib/CryptoJS/components/hmac.js"></script>
+    <script src="../../assets/gateway/lib/url-template/url-template.js"></script>
+    <script src="../../assets/gateway/apigClient.js"></script>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Serverless Stories</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Top Stories</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li id="login"></li>
+                    <li id="user"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="col-sm-12">
+        <h1>Function as a Service (FaaS)</h1>
+
+        <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+        <div id="blueimp-gallery" class="blueimp-gallery">
+            <div class="slides"></div>
+            <h3 class="title"></h3>
+            <a class="prev">‹</a>
+            <a class="next">›</a>
+            <a class="close">×</a>
+            <a class="play-pause"></a>
+            <ol class="indicator"></ol>
+        </div>
+
+        <div id="links">
+            <a href="../../assets/images/garbicz-01.jpg" title="Banana">
+                <img src="../../assets/images/thumb-garbicz-01.jpg" alt="Banana">
+            </a>
+            <a href="../../assets/images/garbicz-02.jpg" title="Apple">
+                <img src="../../assets/images/thumb-garbicz-02.jpg" alt="Apple">
+            </a>
+            <a href="../../assets/images/Garbicz.jpeg" title="Orange">
+                <img src="../../assets/images/thumb-Garbicz.jpeg" alt="Orange">
+            </a>
+        </div>
+    </div>
+    <script src="../../assets/app.js"></script>
+    <script src="js/blueimp-gallery.min.js"></script>
+
+    <script>
+        document.getElementById('links').onclick = function (event) {
+            event = event || window.event;
+            var target = event.target || event.srcElement,
+                    link = target.src ? target.parentNode : target,
+                    options = {index: link, event: event},
+                    links = this.getElementsByTagName('a');
+            blueimp.Gallery(links, options);
+        };
+    </script>
+</div>
+</body>
+</html>
